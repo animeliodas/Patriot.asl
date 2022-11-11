@@ -5,13 +5,6 @@ state("game")
 	
 }
 
-startup
-{
-
-	settings.Add("AutoSplit",false);
-
-}
-
 isLoading
 {
 	if( current.loading == 0 )
@@ -24,9 +17,9 @@ isLoading
 split
 { 
 	
-	if( old.loading == 0 && current.loading == 2)
+	if(old.loading < current.loading & current.loading == 2)
 	{
-		return settings["AutoSplit"];
+		return true;
 	}
 		
 }
